@@ -1,2 +1,2 @@
 # Bellabeat
-Bellabeat Data Analysis
+Bellabeat Data Analysis Project
