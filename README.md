@@ -22,7 +22,7 @@ Process, analyze, create and share visualizations about FitBit dataset, to get p
 The stakeholders are the founders of the company Urška Sršen and Sando Mur, also the Data analyst marketing team will be beneficiated for the research.
 
 ## __Process__  
-I will use R studio desktop versión 2022.07.0 Build 548 for analyzing the .csv files.
+I have used use R studio desktop versión 2022.07.0 Build 548 for analyzing the .csv files.
 
 __R programming process__
 
