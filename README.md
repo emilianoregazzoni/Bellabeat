@@ -41,6 +41,5 @@ library(here)
 library(skimr)
 library(janitor)
 library(stringr)
-library(here)
 ``` 
 Import and clean the files: load the .csv files. Remove duplicates and fix inconsistencies (if I can).
