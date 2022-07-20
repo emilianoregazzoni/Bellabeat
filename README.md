@@ -12,7 +12,7 @@ I am a junior data analyst working on the marketing analyst team at Bellabeat, a
 I should prepare the data, process it, analyze it and get some insights to give them for stakeholders, and help to bring the company on to the next level.
 
 
-The 6 stages from Google Data Analyst program are:  
+:scroll: The 6 stages from Google Data Analyst program are:  
 Ask - Prepare - Process - Analyze - Share - Act  
 
 
