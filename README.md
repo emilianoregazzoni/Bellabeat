@@ -228,9 +228,11 @@ Check the occurrences of the user = 4057192912
 ``` 
 SELECT * FROM dailycalories d
 where Id = 4057192912;
-``` 
+```   
 ![image](https://user-images.githubusercontent.com/20979227/181073655-3fafde4f-7b6c-4668-a7ce-062e52bb709e.png)  
 
+  
+  
 
 Just 4, what seems to be ok.  
 Now create the column with the average for each user:  
