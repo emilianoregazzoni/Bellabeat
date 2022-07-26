@@ -76,7 +76,7 @@ The column which contains the date is in Character format →
 
 ![image](https://user-images.githubusercontent.com/20979227/181067618-87a159a8-0bb2-4b18-ac41-f720c5e68718.png)
 
-It must changed →   
+It must be changed →   
 But, ‘AM’ last part, is the tricky part. I can’t tell R this field is a date, with ‘AM’.
 All the registers have the ‘AM’ termination, I can delete it.
 So first, make a transformation to delete the last two characters of the field, in this case ‘AM’ will be dropped.
