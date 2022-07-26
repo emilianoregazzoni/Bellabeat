@@ -29,27 +29,34 @@ __R programming process__
 First steps, install all the packages and load all the libraries necessary
 
 ``` 
-install.package("readr")
-install.packages("dplyr")
-install.packages("tidyverse")
-install.packages("here")
-install.packages("janitor")
-install.packages("stringr")
+install.package('readr')
+install.packages('dplyr')
+install.packages('tidyverse')
+install.packages('here')
+install.packages('janitor')
+install.packages('stringr')
+install.packages('lubridate')
+install.packages('chron')
+install.packages('ggplot2')
+
 library(dplyr)
 library(tidyverse)
 library(here)
 library(skimr)
 library(janitor)
 library(stringr)
+library(lubridate)
+library(ggplot2)
+
 ``` 
 Import and clean the files: load the .csv files. Remove duplicates and fix inconsistencies.
 
 ```
 sleepDay <- read_csv("C:/Fitabase Data 4.12.16-5.12.16/sleepDay_merged.csv")
 View(sleepDay)
-dailyActivity <- read_csv("C://Fitabase Data 4.12.16-5.12.16/dailyActivity_merged.csv")
+dailyActivity <- read_csv("C:/Fitabase Data 4.12.16-5.12.16/dailyActivity_merged.csv")
 View(dailyActivity)
-weightLogInfo <- read_csv("C://Fitabase Data 4.12.16-5.12.16/weightLogInfo_merged.csv")
+weightLogInfo <- read_csv("C:/Fitabase Data 4.12.16-5.12.16/weightLogInfo_merged.csv")
 View(weightLogInfo)
 dailyCalories <- read_csv("C:/dailyCalories_merged.csv")
 View(dailyCalories)
