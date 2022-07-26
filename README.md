@@ -350,9 +350,13 @@ The rest of the users are not looking for weight loss.
 
 ## __Act__  
 
-Conclusions reached:  
+__Conclusions reached:__  
   
- Users almost reach the double of time to get asleep that normal 
+ :mag_right: Users almost reach the double of time to get asleep that normal. It seems to be a problem in the long term.    
+ :mag_right: The company encourage the users to do more sports on weekends, mostly of the people have more free time on weekends, but it is not reflected on the activity they actually do.  
+ :mag_right: The company ought to boost people go to bed a couple of hours earlier. Maybe it would be enough some device notifications, about benefits to go bed at 22. Also maybe they get asleep more quickly.  
+ :mag_right: Almost ⅓ of the users do not burn the minimum calories a normal human should burn daily. The company must inspire the user try to reach 2000 calories daily.
+ 
  
 
   
