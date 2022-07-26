@@ -273,8 +273,8 @@ pie(table(CaloriesByUser$CaloriesOK),labels)
 Seems to be ok, when users turn on the device to save information about them, we have relatively good active days, mostly users burn the minimum amount they should burn in a day.  
 Despite this, a big amount of users (around 1/3) do not burn enough calories. This is another insight.
 
-Now, let’s check the hours,  with more steps produced by user. 
-Make a query:  
+Now, let’s check the hours,  with more steps produced by hour.  
+Make a query:   
 
 ```  
 SELECT hour(ActivityMinute), SUM(Steps)
@@ -284,7 +284,7 @@ order by Id,hour(ActivityMinute) ;
 ```
 ![image](https://user-images.githubusercontent.com/20979227/181074976-08395784-be89-4692-8600-29527ad9e96f.png)
 
-I will export and convert to data frame, this results to work with in R.  
+I will export the data, and convert it to a data frame, to work in R.   
 
 ```
 StepsByHour <- read_csv("C:/Downloads/stepsbyh.csv")
@@ -301,7 +301,7 @@ Now get this graph.
 ![image](https://user-images.githubusercontent.com/20979227/181075296-8b0191b5-1a2a-4b0e-98f5-01ed43cd2626.png)
 
 According to multiple studies, the best hour to go to bed is between 22 and 23 hs.  
-In this graph, we see a normal behavior, hours with almost +400.000 given for all the users are  9am to 9pm which is ok.  
+In this graph, we see a normal behavior, hours with almost +400.000 steps taken for all the users are 9am to 9pm which is ok.   
 But this graph shows a large amount of steps in 23 hs, and 00 hs.  
 23 hs is almost 100.000 steps accumulated, and 00:00 are over 50.000. If you divide this numbers, with the information about 33 users you have in this table, you will have:  
   
@@ -315,7 +315,7 @@ __Share process__
   
   
 With the previous query called “Resume general”, I can export it to an excel file and import to Tableau Public and do some visualizations with the information processed.  
-Here you can see, Tuesday, Wednesday and Thursday are the day with most calories burned  
+Here you can see, Tuesday, Wednesday and Thursday are the day with most calories burned    
 ![image](https://user-images.githubusercontent.com/20979227/181075614-0f8d8ae7-2e7f-4893-b94d-83ac12175a65.png)  
 
 The variables “Calories” and “distance” should be in correlation. So make a graph just to corroborate this.  
