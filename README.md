@@ -353,9 +353,9 @@ The rest of the users are not looking for weight loss.
 __Conclusions reached:__  
   
  :mag_right: Users almost reach the double of time to get asleep that normal. It seems to be a problem in the long term.    
- :mag_right: The company should encourage the users to do more sports on weekends, mostly of the people have more free time on weekends, but it is not reflected on the activity they actually do.:bicyclist::soccer:    
+ :mag_right: The company should encourage the users to do more sports on weekends, mostly of the people have more free time on weekends, but it is not reflected on the activity they actually do. 
  :alarm_clock: The company ought to boost people go to bed a couple of hours earlier. Maybe it would be enough with some device notifications, about benefits to go bed at 22 or earlier. Also maybe they get asleep more quickly.  
- :mag_right: Almost ⅓ of the users do not burn the minimum calories a normal human should burn daily. The company must inspire the user try to reach 2000 calories daily.
+ :mag_right: Almost ⅓ of the users do not burn the minimum calories a normal human should burn daily. The company must inspire the user try to reach at least 2000 calories daily.
  
  
 
