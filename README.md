@@ -137,9 +137,12 @@ __Analyze/share phase (SQL and R)__
 Curious searching, it is impossible to have a register which has more time asleep than more time in bed, so try to see what happens looking for this.  
 No records found, what it is ok, more confident about data.  
 Try to find a record of a people who felt asleep at the same minute the person got to bed.  
-```  timeSleepVsBed <- filter(sleepDay, TotalMinutesAsleep >= TotalTimeInBed)
-View(timeSleepVsBed)
+
 ```  
+timeSleepVsBed <- filter(sleepDay, TotalMinutesAsleep >= TotalTimeInBed)
+View(timeSleepVsBed)  
+```  
+
 Just one.  
 ![image](https://user-images.githubusercontent.com/20979227/181069921-d03a56a4-f642-4658-9006-ff0d85ed3152.png)
 
@@ -221,15 +224,17 @@ CaloriesByUser["QtyUser"] <- select(count(dailyActivity, Id), n)
 Finally get the data frame, so let’s check quickly if it is ok in SQL.  
 Check the occurrences of the user = 4057192912  
 
+
 ``` 
 SELECT * FROM dailycalories d
 where Id = 4057192912;
 ``` 
-![image](https://user-images.githubusercontent.com/20979227/181073655-3fafde4f-7b6c-4668-a7ce-062e52bb709e.png)
+![image](https://user-images.githubusercontent.com/20979227/181073655-3fafde4f-7b6c-4668-a7ce-062e52bb709e.png)  
 
-Just 4, what seems to be ok.
 
-Now create the column with the average for each user:
+Just 4, what seems to be ok.  
+Now create the column with the average for each user:  
+
 
 ```
 CaloriesByUser <- CaloriesByUser %>% 
