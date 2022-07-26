@@ -132,7 +132,7 @@ Date format is ok
 
 ![image](https://user-images.githubusercontent.com/20979227/181069611-737e41ac-71e1-47e1-89ef-c4c78e12092e.png)
 
-__Analyze/share phase (SQL and R)__
+## __Analyze/share phase (SQL and R)__
 
 Curious searching, it is impossible to have a register which has more time asleep than more time in bed, so try to see what happens looking for this.  
 No records found, what it is ok, more confident about data.  
@@ -311,34 +311,44 @@ But this graph shows a large amount of steps in 23 hs, and 00 hs.
 The numbers at these hours are not particularly recommended.  
 Maybe devices can suggest users go to bed when they are reaching 10 pm on their devices.  
 
-__Share process__  
+## __Share process__  
+  
   
   
 With the previous query called “Resume general”, I can export it to an excel file and import to Tableau Public and do some visualizations with the information processed.  
-Here you can see, Tuesday, Wednesday and Thursday are the day with most calories burned    
-![image](https://user-images.githubusercontent.com/20979227/181075614-0f8d8ae7-2e7f-4893-b94d-83ac12175a65.png)  
+Here you can see, Tuesday, Wednesday and Thursday are the day with most calories burned  
+
+![image](https://user-images.githubusercontent.com/20979227/181075614-0f8d8ae7-2e7f-4893-b94d-83ac12175a65.png)    
+  
+  
 
 The variables “Calories” and “distance” should be in correlation. So make a graph just to corroborate this.  
+
+
 ![image](https://user-images.githubusercontent.com/20979227/181075689-c11ab6fa-71a8-4ae5-ac25-9b3d7ef559d5.png)  
 
 It’s ok, it seems to be strongly relationated, how I suppose it would be.  
   
   
-Finally, I will check about the weight table. The users are “fit” users, or not? They’re focused on losing weight or not?
-Check it out.
-In the table about weight, just have information about 8 users. It seems to be a few.
-Also, we have just 2 users, with a huge amount of records in the table, so we can not make a confident conclusion about the theory “Are there ‘FIT’ users or not?”
-Anyway, check it out with the information available.
+Finally, I will check the weight table. The users are “fit” users, or not? They’re focused on losing weight or not?  
+Check it out.  
+In the table from weight, I have information about 8 users. It seems to be a few.  
+Also, we have just 2 users, with a huge amount of records in the table, so we can not make a confident conclusion about the theory “Are there ‘FIT’ users or not?”  
+Anyway, check it out with the information available.  
 
-![image](https://user-images.githubusercontent.com/20979227/181075813-bc2cc656-334b-425e-9667-3f4419b48b75.png)
 
-The graph shows the weight in pounds of the users among the exactly dates.  
+![image](https://user-images.githubusercontent.com/20979227/181075813-bc2cc656-334b-425e-9667-3f4419b48b75.png)  
+  
+  
+
+The graph shows the weight in pounds of the users among the exactly dates.    
 The biggest difference is in the last user, he/she has 189,2 pounds in 18/4 and also he/she has his/her last record of 185.2 pounds in 12/5.  
 There is a difference of 4 pounds, around 1.8 kg in 1 month of 1 user. With just this information, I can see just 1 of 8 users is on the way to weight loss.  
 The rest of the users are not looking for weight loss.  
 
 
-__Act__  
+
+## __Act__  
 
 Conclusions reached:  
   
