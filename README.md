@@ -110,7 +110,7 @@ I prefer to use MySQL and create the database through the csv files, create the 
 I can create the table and insert the records automatically from .CSV taking some help to build the scripts with the website https://sqlizer.io/
 All the scripts to build the database are in the repository.
 
-There is 1 file with all the dump of the database called “bellabeat.sql”, also if you have some problems with this file, you have the 18 files created with https://sqlizer.io/. Sqlizer is a pay service if you want to insert so many records like some tables (2.48 million like heartrate_seconds). I took it for once.
+There are the 18 files associated with each .csv, created with https://sqlizer.io/. Sqlizer is a pay service if you want to insert so many records like some tables (2.48 million like heartrate_seconds). I took it for once.
 Feel free to use the scripts .SQL for your own analysis.
 
 I made a brief research about the table dailyactivity_merged
