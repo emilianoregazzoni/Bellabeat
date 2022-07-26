@@ -216,10 +216,13 @@ names(CaloriesByUser)[2] <- "SumCalories"
 ```  
 ![image](https://user-images.githubusercontent.com/20979227/181073445-5ba06718-07d6-4abb-b530-cf8e8718729f.png)
 
-Now should get the occurrences of each user on the table DailyActivity, so →
+Now should get the occurrences of each user on the table DailyActivity, so →  
 
-CaloriesByUser["QtyUser"] <- select(count(dailyActivity, Id), n)
-![image](https://user-images.githubusercontent.com/20979227/181073527-cda45dcd-9a55-4503-80da-614cfa9e43ee.png)
+CaloriesByUser["QtyUser"] <- select(count(dailyActivity, Id), n)  
+
+![image](https://user-images.githubusercontent.com/20979227/181073527-cda45dcd-9a55-4503-80da-614cfa9e43ee.png)  
+  
+  
 
 Finally get the data frame, so let’s check quickly if it is ok in SQL.  
 Check the occurrences of the user = 4057192912  
