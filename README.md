@@ -1,4 +1,4 @@
-#  Bellabeat :satellite: :chart_with_downwards_trend: :memo: :us:
+#  Bellabeat :speaking_head: :memo:
 ## __Bellabeat Data Analysis Project__  
 
 About the company:  
