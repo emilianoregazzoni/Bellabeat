@@ -1,4 +1,4 @@
-#  Bellabeat
+#  Bellabeat :satellite: chart_with_downwards_trend: :memo: :us:
 ## __Bellabeat Data Analysis Project__  
 
 About the company:  
