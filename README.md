@@ -187,7 +187,9 @@ order by d.ActivityDate
 ```  
 
 Now I have the information grouped, I will name it “Resume general”  
-![image](https://user-images.githubusercontent.com/20979227/181072221-d78566c6-4aae-44a4-ab27-01bf16918b7b.png)  
+![image](https://user-images.githubusercontent.com/20979227/181138992-76cac447-b7a7-4bd0-afec-260b294ceb46.png)  
+
+ 
 
 I have explored correlations in the data.  
 Something obvious is the relation between steps and calories burned. As you walk in a day, you will increase your burned calories. 
@@ -352,16 +354,20 @@ Maybe devices can suggest users go to bed when they are reaching 10 pm on their 
 With the previous query called “Resume general”, I can export it to an excel file and import to Tableau Public and do some visualizations with the information processed.  
 Here you can see, Tuesday, Wednesday and Thursday are the day with most calories burned  
 
-![image](https://user-images.githubusercontent.com/20979227/181075614-0f8d8ae7-2e7f-4893-b94d-83ac12175a65.png)    
+![image](https://user-images.githubusercontent.com/20979227/181139423-db85f0cf-fa6a-4ca7-867d-3a50dc22e0ac.png)
+   
   
   
 
 The variables “Calories” and “distance” should be in correlation. So make a graph just to corroborate this.  
 
 
-![image](https://user-images.githubusercontent.com/20979227/181075689-c11ab6fa-71a8-4ae5-ac25-9b3d7ef559d5.png)  
+![image](https://user-images.githubusercontent.com/20979227/181140561-b143b57e-ae7d-4e01-89b0-d54200e463cf.png)  
+
+ 
 
 It’s ok, it seems to be strongly relationated, how I supposed it would be.  
+
   
   
 Finally, I will check the weight table. The users are “fit” users, or not? They’re focused on losing weight or not?  
