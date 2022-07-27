@@ -175,7 +175,7 @@ print(mean(sleepDay$DiffBedSleep))
 It seems to be a huge amount of minutes. World average is between 10 minutes and 20 minutes to fell asleep. It seems to be a problem. The average of the set of 30 person is the double of the World average.  
 __This is an insight__
 
-Now make a query, to obtain the sum of, (grouped by user and day week):  
+Now make a query, to obtain the sum of, (grouped by day week):  
 
 ```
 SELECT DAYNAME(ActivityDate),
@@ -366,8 +366,14 @@ Let see the total steps taken by day
 
 
 
-It’s ok, it seems to be strongly relationated, how I supposed it would be. Except by Friday...............
+It’s ok, it seems to be strongly relationated, how I supposed it would be.
 
+Now let's check about Users.  
+![image](https://user-images.githubusercontent.com/20979227/181281699-f54b6342-bbef-49cc-984f-50a15bd3ab4f.png)  
+
+The activities of the users are so different. Some users have a lot of records, some users have a few.  
+Maybe some users turn on the devices more times than others.  
+It will be helpful to recommend the users turn on the application and device all times, despite the fact that they did not do sports.  
   
   
 Finally, I will check the weight table. The users are “fit” users, or not? They’re focused on losing weight or not?  
@@ -396,6 +402,8 @@ __Conclusions reached:__
  :mag_right: The company should encourage the users to do more sports on weekends, mostly of the people have more free time on weekends, but it is not reflected on the activity they actually do.  
  :mag_right: The company ought to boost people go to bed a couple of hours earlier. Maybe it would be enough with some device notifications, about benefits to go bed at 22 or earlier. Also maybe they get asleep more quickly.  
  :mag_right: Almost ⅓ of the users do not burn the minimum calories a normal human should burn daily. The company must inspire the user try to reach at least 2000 calories daily.
+ :mag_right: Suggest keeping the application and devices turned on, in order to record all the information about their activities, such as a normal day of work, or a lazy day, or maybe a gym day. The company needs to have all the information available posible from the users.  
+
  
  
 
