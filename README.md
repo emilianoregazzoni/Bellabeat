@@ -178,10 +178,12 @@ __This is an insight__
 Now make a query, to obtain the sum of, (grouped by user and day week):  
 
 ```
-SELECT d.Id , w.DayWeek, SUM(d.TotalSteps) as TotalSteps, ROUND(SUM(d.TotalDistance),2) as TotalDistance, SUM(d.calories) as TotalCalories
-FROM dailyactivity d , dayweek w
-group by d.Id, w.DayWeek
+SELECT DAYNAME(ActivityDate),
+SUM(d.TotalSteps) as TotalSteps, ROUND(SUM(d.TotalDistance),2) as TotalDistance, SUM(d.calories) as TotalCalories
+FROM dailyactivity_merged d , dayweek w
+group by DAYNAME(ActivityDate)
 order by d.ActivityDate  
+
 ```  
 
 Now I have the information grouped, I will name it “Resume general”  
