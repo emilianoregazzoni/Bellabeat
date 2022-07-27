@@ -70,7 +70,7 @@ sum(duplicated(sleepDay)): 3 records
 ```
 
 So, I should remove 3 records, best way to do that:
-```sleepDat <- unique(sleepDay_merged)```
+```sleepDat <- unique(sleepDay)```
 
 
 Output: 410 records which is razonable.
@@ -159,7 +159,7 @@ Let’s see how many minutes are the difference between users getting to bed and
 For this, add a column to data frame with the difference:  
 
 ``` 
-sleepDay_merged$DiffBedSleep<- (sleepDay_merged$TotalTimeInBed-sleepDay_merged$TotalMinutesAsleep)
+sleepDay$DiffBedSleep<- (sleepDay$TotalTimeInBed-sleepDay$TotalMinutesAsleep)
 ```  
 ![image](https://user-images.githubusercontent.com/20979227/181070233-0782e628-eeec-4aac-93c8-da5b2f9832d4.png)  
 
@@ -168,7 +168,7 @@ Now get the average time of all users, all time records.
 
 ```
 ##Get the average all users, all time records
-print(mean(sleepDay_merged$DiffBedSleep))
+print(mean(sleepDay$DiffBedSleep))
 ```  
 ![image](https://user-images.githubusercontent.com/20979227/181071814-baae8b20-831c-4a3d-b456-cd8c3459c4b0.png)  
 +39 minutes is the average to get asleep for the users.  
@@ -179,7 +179,7 @@ Now make a query, to obtain the sum of, (grouped by user and day week):
 
 ```
 SELECT d.Id , w.DayWeek, SUM(d.TotalSteps) as TotalSteps, ROUND(SUM(d.TotalDistance),2) as TotalDistance, SUM(d.calories) as TotalCalories
-FROM dailyactivity_merged d , dayweek w
+FROM dailyactivity d , dayweek w
 group by d.Id, w.DayWeek
 order by d.ActivityDate  
 ```  
@@ -225,7 +225,7 @@ CaloriesByUser <- aggregate(x = dailyActivity$Calories,
           by = list(dailyActivity$Id),           
           FUN = sum) 
           
-CaloriesByUser$RecordByUser <- count(dailyActivity_merged, Id)
+CaloriesByUser$RecordByUser <- count(dailyActivity, Id)
 ```  
 
 ![image](https://user-images.githubusercontent.com/20979227/181073231-a1264752-d57a-4c3c-b480-041df6602dfe.png)  
@@ -310,7 +310,7 @@ Make a query:
 
 ```  
 SELECT hour(ActivityMinute), SUM(Steps)
-FROM minutestepsnarrow_merged m
+FROM minutestepsnarrow m
 group by hour(ActivityMinute)
 order by Id,hour(ActivityMinute) ;
 ```
