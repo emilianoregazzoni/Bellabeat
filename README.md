@@ -359,14 +359,14 @@ Here you can see, Tuesday, Wednesday and Thursday are the day with most calories
   
   
 
-The variables “Calories” and “distance” should be in correlation. So make a graph just to corroborate this.  
+Let see the total steps taken by day
 
 
-![image](https://user-images.githubusercontent.com/20979227/181140561-b143b57e-ae7d-4e01-89b0-d54200e463cf.png)  
+![image](https://user-images.githubusercontent.com/20979227/181141053-0ff190b1-a8f7-4f99-b491-56c44c1cc6e1.png)  
 
- 
 
-It’s ok, it seems to be strongly relationated, how I supposed it would be.  
+
+It’s ok, it seems to be strongly relationated, how I supposed it would be. Except by Friday...............
 
   
   
