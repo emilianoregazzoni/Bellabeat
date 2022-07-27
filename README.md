@@ -52,7 +52,7 @@ library(ggplot2)
 Import and clean the files: load the .csv files. Remove duplicates and fix inconsistencies.
 
 ```
-sleepDay <- read_csv("C:/Fitabase Data 4.12.16-5.12.16/sleepDay_merged.csv")
+sleepDay <- read_csv("C:/Fitabase Data 4.12.16-5.12.16/sleepDay_.csv")
 View(sleepDay)
 dailyActivity <- read_csv("C:/Fitabase Data 4.12.16-5.12.16/dailyActivity_merged.csv")
 View(dailyActivity)
@@ -107,14 +107,14 @@ __SQL process__
 
 Despite the course recommending using BigQuery, it is not  my favorite tool to deal with so many records. At least on my computer, which is not a bad one, the website is so slow.
 I prefer to use MySQL and create the database through the csv files, create the tables, and make the records with some scripts.
-I can create the table and insert the records automatically from .CSV taking some help to build the scripts with the website https://sqlizer.io/
-All the scripts to build the database are in the repository.
+I can create the table and insert the records automatically from .CSV taking some help to build the scripts with the website https://sqlizer.io/  
+All the scripts to build the database are in the repository.  
 
-There are the 18 files associated with each .csv, created with https://sqlizer.io/. Sqlizer is a pay service if you want to insert so many records like some tables (2.48 million like heartrate_seconds). I took it for once.
-Feel free to use the scripts .SQL for your own analysis.
+There are the 18 files associated with each .csv, created with https://sqlizer.io/. Sqlizer is a pay service if you want to insert so many records like some tables (2.48 million like heartrate_seconds). I took it for once.  
+Feel free to use the scripts .SQL for your own analysis.  
 
-I made a brief research about the table dailyactivity_merged
-I do some filters in SQL, and see that all information about daily activities are between
+I made a brief research about the table dailyactivity  
+I do some filters in SQL, and see that all information about daily activities are between  
 2016-04-12 00:00:00 to 2016-05-12 00:00:00
 
 ```SELECT * FROM dailyactivity d
@@ -123,7 +123,7 @@ order by ActivityDate;
 
 It is impossible to filter, because I only have 1 month, so if I want to measure the activity, I only have the days to filter and try to get some classified information.
 
-Create a view to have the data accesible:
+Create a view to have the data accesible:  
 
 ```create view DayWeek as
 SELECT DAYNAME(ActivityDate) as DayWeek
@@ -151,12 +151,18 @@ View(timeSleepVsBed)
 ```  
 
 Just one.  
+  
+  
 ![image](https://user-images.githubusercontent.com/20979227/181069921-d03a56a4-f642-4658-9006-ff0d85ed3152.png)
 
-Let’s see how many minutes are the difference between users getting to bed and falling asleep.
+Let’s see how many minutes are the difference between users getting to bed and falling asleep.  
 For this, add a column to data frame with the difference:  
-``` sleepDay_merged$DiffBedSleep<- (sleepDay_merged$TotalTimeInBed-sleepDay_merged$TotalMinutesAsleep)```  
-![image](https://user-images.githubusercontent.com/20979227/181070233-0782e628-eeec-4aac-93c8-da5b2f9832d4.png)
+
+``` 
+sleepDay_merged$DiffBedSleep<- (sleepDay_merged$TotalTimeInBed-sleepDay_merged$TotalMinutesAsleep)
+```  
+![image](https://user-images.githubusercontent.com/20979227/181070233-0782e628-eeec-4aac-93c8-da5b2f9832d4.png)  
+
 
 Now get the average time of all users, all time records.  
 
@@ -165,45 +171,53 @@ Now get the average time of all users, all time records.
 print(mean(sleepDay_merged$DiffBedSleep))
 ```  
 ![image](https://user-images.githubusercontent.com/20979227/181071814-baae8b20-831c-4a3d-b456-cd8c3459c4b0.png)  
-+39 minutes is the average to get asleep for the users. It seems to be a huge amount of minutes. World average is between 10 minutes and 20 minutes to fell sleep. Seems to be a problem. The average of the 30 person is the double of the World average. Maybe this persons have early insomnia.
++39 minutes is the average to get asleep for the users.  
+It seems to be a huge amount of minutes. World average is between 10 minutes and 20 minutes to fell asleep. It seems to be a problem. The average of the set of 30 person is the double of the World average.  
 __This is an insight__
 
 Now make a query, to obtain the sum of, (grouped by user and day week):  
+
 ```
 SELECT d.Id , w.DayWeek, SUM(d.TotalSteps) as TotalSteps, ROUND(SUM(d.TotalDistance),2) as TotalDistance, SUM(d.calories) as TotalCalories
 FROM dailyactivity_merged d , dayweek w
 group by d.Id, w.DayWeek
 order by d.ActivityDate  
 ```  
-Now I have the information grouped, I will name it “Resume general”
+
+Now I have the information grouped, I will name it “Resume general”  
 ![image](https://user-images.githubusercontent.com/20979227/181072221-d78566c6-4aae-44a4-ab27-01bf16918b7b.png)  
 
-I have explored correlations in the data.
+I have explored correlations in the data.  
 Something obvious is the relation between steps and calories burned. As you walk in a day, you will increase your burned calories. 
-Check it out:
-After explore the graphs ggplot2 give us, for work with 2 variables, I took geom_smooth
+Check it out:  
+After explore the graphs ggplot2 give us, for work with 2 variables, I took geom_smooth  
+
 ``` 
 df <- dailyActivity
 ggplot(df, aes( df$Calories ,df$TotalSteps )) +
   geom_point() +
   geom_smooth(method = "lm")
  ```   
+ 
   ![image](https://user-images.githubusercontent.com/20979227/181072753-54f6a96c-7af4-4ef2-83a9-81e5d285d2a8.png)  
+  
   
 This graphic properly shows the correlation between the 2 variables used, steps and calories burned.  
 It seems to be so good, just for one particular value.  
-There is a record that indicates +3500 were burned but just with a bit more of +2500 steps.  
+There is a record that indicates +3500 were burned but just with a bit more of +2500 steps.   
 Inusual than the others, so let’s check that particular record.  
 Get all data ordered by TotalSteps, the first one is that particulary point at the graph. Also this record has a very high value in VeryActiveDistance , which is completely ok, that means this event probably was an High Intensity Interval Training (HIIT). A kind of workout with a particular intensity that makes you spend a lot of calories, with no necessary walk so much.  
 
 
 ``` 
-dailyActivity %>% arrange(-dailyActivity$TotalSteps)
+dailyActivity %>% arrange(-dailyActivity$TotalSteps)  
 ```  
+
 ![image](https://user-images.githubusercontent.com/20979227/181072989-43bc3b66-1173-430f-8455-adf6ad6c62a7.png)  
 
-Searching on the internet, I found the average calories burned by a person rounds between 2000 to 2500.  
-So let’s check if the average calories burned by users it’s ok, or maybe some users need to do more activity.  
+
+Searching on the internet, I found the average calories burned by a person rounds between 2000 to 2500.   
+Let’s check if the average calories burned by users it’s ok, or maybe some users need to do more activity.  
 Get the sum of the calories burned by user:  
 
 ``` 
@@ -213,25 +227,30 @@ CaloriesByUser <- aggregate(x = dailyActivity$Calories,
           
 CaloriesByUser$RecordByUser <- count(dailyActivity_merged, Id)
 ```  
+
 ![image](https://user-images.githubusercontent.com/20979227/181073231-a1264752-d57a-4c3c-b480-041df6602dfe.png)  
 
 Now get the Id user and x value means that the amount of calories burned of its records.  
 Column names are so bad, I change them by setting the correct Column name through vector position.  
+
 ```  
 names(CaloriesByUser)[1] <- "IdUser"
 names(CaloriesByUser)[2] <- "SumCalories"
 ```  
-![image](https://user-images.githubusercontent.com/20979227/181073445-5ba06718-07d6-4abb-b530-cf8e8718729f.png)
+
+![image](https://user-images.githubusercontent.com/20979227/181073445-5ba06718-07d6-4abb-b530-cf8e8718729f.png)  
 
 Now should get the occurrences of each user on the table DailyActivity, so →  
 
+```  
 CaloriesByUser["QtyUser"] <- select(count(dailyActivity, Id), n)  
+```  
 
 ![image](https://user-images.githubusercontent.com/20979227/181073527-cda45dcd-9a55-4503-80da-614cfa9e43ee.png)  
   
   
 
-Finally get the data frame, so let’s check quickly if it is ok in SQL.  
+Finally get the data frame, let’s check quickly if it is ok in SQL.  
 Check the occurrences of the user = 4057192912  
 
 
@@ -242,8 +261,6 @@ where Id = 4057192912;
 ![image](https://user-images.githubusercontent.com/20979227/181073655-3fafde4f-7b6c-4668-a7ce-062e52bb709e.png)  
 
   
-  
-
 Just 4, what seems to be ok.  
 Now create the column with the average for each user:  
 
@@ -252,15 +269,19 @@ Now create the column with the average for each user:
 CaloriesByUser <- CaloriesByUser %>% 
   mutate(SumCalories/QtyUser)
 ```
-![image](https://user-images.githubusercontent.com/20979227/181073909-204fdb26-080b-4a12-b559-323ac6d93035.png)
 
-Rename the column name
+![image](https://user-images.githubusercontent.com/20979227/181073909-204fdb26-080b-4a12-b559-323ac6d93035.png)  
+
+
+Rename the column name  
+
 ```
 names(CaloriesByUser)[4] <- "AvgUser"
 ```  
-![image](https://user-images.githubusercontent.com/20979227/181073979-ec7ea139-4935-475d-a8e5-c2180d5ae137.png)
 
-Got the average.
+![image](https://user-images.githubusercontent.com/20979227/181073979-ec7ea139-4935-475d-a8e5-c2180d5ae137.png)  
+
+I Got the average.  
 I found on the internet, a normal adult should bourn around 2000 calories daily, with the attribute AvgUser, create a column showing if the user burns 2000 calories or not.  
 I will create a logic field, with this information.  
 
@@ -268,14 +289,18 @@ I will create a logic field, with this information.
 CaloriesByUser <- CaloriesByUser %>% mutate(CaloriesByUser$AvgUser > 2000)
 names(CaloriesByUser)[5] <- "CaloriesOK"
 ``` 
-![image](https://user-images.githubusercontent.com/20979227/181074232-8c51acbc-3960-49e2-9846-dbce9ff3c761.png)
+
+![image](https://user-images.githubusercontent.com/20979227/181074232-8c51acbc-3960-49e2-9846-dbce9ff3c761.png)  
 
 Now try to get a pie chart that shows that information about CaloriesOK.  
+
 ``` 
 labels <- c("<2000 calories/day", ">2000 calories/day")
 pie(table(CaloriesByUser$CaloriesOK),labels)
 ```  
-![image](https://user-images.githubusercontent.com/20979227/181074362-083350eb-c82b-43ce-a46a-275a2ba755a4.png)
+
+![image](https://user-images.githubusercontent.com/20979227/181074362-083350eb-c82b-43ce-a46a-275a2ba755a4.png)  
+
 
 Seems to be ok, when users turn on the device to save information about them, we have relatively good active days, mostly users burn the minimum amount they should burn in a day.  
 Despite this, a big amount of users (around 1/3) do not burn enough calories. This is another insight.
@@ -289,7 +314,7 @@ FROM minutestepsnarrow_merged m
 group by hour(ActivityMinute)
 order by Id,hour(ActivityMinute) ;
 ```
-![image](https://user-images.githubusercontent.com/20979227/181074976-08395784-be89-4692-8600-29527ad9e96f.png)
+![image](https://user-images.githubusercontent.com/20979227/181074976-08395784-be89-4692-8600-29527ad9e96f.png)  
 
 I will export the data, and convert it to a data frame, to work in R.   
 
@@ -303,17 +328,17 @@ ggplot(frameStepsByDay, aes(x=hour, y=StepsByHour),main='Default Axes') +
 geom_bar(stat = "identity") +
 scale_y_continuous(name="Thousands of steps", labels = scales::comma)
 ```  
-Now get this graph.
+Now get this graph.  
 
-![image](https://user-images.githubusercontent.com/20979227/181075296-8b0191b5-1a2a-4b0e-98f5-01ed43cd2626.png)
+![image](https://user-images.githubusercontent.com/20979227/181075296-8b0191b5-1a2a-4b0e-98f5-01ed43cd2626.png)  
 
 According to multiple studies, the best hour to go to bed is between 22 and 23 hs.  
-In this graph, we see a normal behavior, hours with almost +400.000 steps taken for all the users are 9am to 9pm which is ok.   
+In this graph, I see a normal behavior, hours with almost +400.000 steps taken for all the users are vetween 9am to 9pm which is nice.   
 But this graph shows a large amount of steps in 23 hs, and 00 hs.  
 23 hs is almost 100.000 steps accumulated, and 00:00 are over 50.000. If you divide this numbers, with the information about 33 users you have in this table, you will have:  
   
-23:00 hs : about 3.000 steps by user  
-00:00 hs: about  1.500 steps by user   
+23:00 hs:  3.000 steps by user  
+00:00 hs:  1.500 steps by user   
 
 The numbers at these hours are not particularly recommended.  
 Maybe devices can suggest users go to bed when they are reaching 10 pm on their devices.  
@@ -321,7 +346,7 @@ Maybe devices can suggest users go to bed when they are reaching 10 pm on their 
 ## __Share process__  
   
   
-  
+ 
 With the previous query called “Resume general”, I can export it to an excel file and import to Tableau Public and do some visualizations with the information processed.  
 Here you can see, Tuesday, Wednesday and Thursday are the day with most calories burned  
 
@@ -334,12 +359,12 @@ The variables “Calories” and “distance” should be in correlation. So mak
 
 ![image](https://user-images.githubusercontent.com/20979227/181075689-c11ab6fa-71a8-4ae5-ac25-9b3d7ef559d5.png)  
 
-It’s ok, it seems to be strongly relationated, how I suppose it would be.  
+It’s ok, it seems to be strongly relationated, how I supposed it would be.  
   
   
 Finally, I will check the weight table. The users are “fit” users, or not? They’re focused on losing weight or not?  
 Check it out.  
-In the table from weight, I have information about 8 users. It seems to be a few.  
+In the table weight, I have information about 8 users. It seems to be a few.  
 Also, we have just 2 users, with a huge amount of records in the table, so we can not make a confident conclusion about the theory “Are there ‘FIT’ users or not?”  
 Anyway, check it out with the information available.  
 
@@ -360,8 +385,8 @@ The rest of the users are not looking for weight loss.
 __Conclusions reached:__  
   
  :mag_right: Users almost reach the double of time to get asleep that normal. It seems to be a problem in the long term.    
- :mag_right: The company should encourage the users to do more sports on weekends, mostly of the people have more free time on weekends, but it is not reflected on the activity they actually do. 
- :alarm_clock: The company ought to boost people go to bed a couple of hours earlier. Maybe it would be enough with some device notifications, about benefits to go bed at 22 or earlier. Also maybe they get asleep more quickly.  
+ :mag_right: The company should encourage the users to do more sports on weekends, mostly of the people have more free time on weekends, but it is not reflected on the activity they actually do.  
+ :mag_right: The company ought to boost people go to bed a couple of hours earlier. Maybe it would be enough with some device notifications, about benefits to go bed at 22 or earlier. Also maybe they get asleep more quickly.  
  :mag_right: Almost ⅓ of the users do not burn the minimum calories a normal human should burn daily. The company must inspire the user try to reach at least 2000 calories daily.
  
  
