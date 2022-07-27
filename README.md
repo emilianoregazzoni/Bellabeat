@@ -368,12 +368,14 @@ Let see the total steps taken by day
 
 It’s ok, it seems to be strongly relationated, how I supposed it would be.
 
-Now let's check about Users.  
+Now let's check about Users. Do all the users have similar activity records? It is true that the dataset is a bit incomplete.  
+
 
 ![image](https://user-images.githubusercontent.com/20979227/181281699-f54b6342-bbef-49cc-984f-50a15bd3ab4f.png)  
 
 
 The activities of the users are so different. Some users have a lot of records, some users have a few.  
+With this information, it is impossible to get a conclusion about the proper use of the application and devices.  
 Maybe some users turn on the devices more times than others.  
 It will be helpful to recommend the users turn on the application and device all times, despite the fact that they did not do sports.  
   
