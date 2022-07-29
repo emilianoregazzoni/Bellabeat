@@ -366,9 +366,9 @@ Let see the total steps taken by day
 
 
 
-It’s ok, it seems to be strongly relationated, how I supposed it would be.
+It is ok, it seems to be strongly relationated, how I supposed it would be.
 
-Now let's check about Users. Do all the users have similar activity records? It is true that the dataset is a bit incomplete.  
+Now let's check about users. Do all the users have similar activity records? It is true that the dataset is a bit incomplete.  
 
 
 ![image](https://user-images.githubusercontent.com/20979227/181281699-f54b6342-bbef-49cc-984f-50a15bd3ab4f.png)  
