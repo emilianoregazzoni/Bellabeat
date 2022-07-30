@@ -172,7 +172,7 @@ print(mean(sleepDay$DiffBedSleep))
 ```  
 ![image](https://user-images.githubusercontent.com/20979227/181071814-baae8b20-831c-4a3d-b456-cd8c3459c4b0.png)  
 +39 minutes is the average to get asleep for the users.  
-It seems to be a huge amount of minutes. World average is between 10 minutes and 20 minutes to fell asleep. It seems to be a problem. The average of the set of 30 person is the double of the World average.  
+It seems to be a huge amount of minutes. World average is between 10 minutes and 20 minutes to fell asleep. It is a problem. The average of the set of 30 person is the double of the World average.  
 __This is an insight__
 
 Now make a query, to obtain the sum of, (grouped by day week):  
@@ -207,7 +207,7 @@ ggplot(df, aes( df$Calories ,df$TotalSteps )) +
   
   
 This graphic properly shows the correlation between the 2 variables used, steps and calories burned.  
-It seems to be so good, just for one particular value.  
+It seems to be good, just for one particular value.  
 There is a record that indicates +3500 were burned but just with a bit more of +2500 steps.   
 Inusual than the others, so let’s check that particular record.  
 Get all data ordered by TotalSteps, the first one is that particulary point at the graph. Also this record has a very high value in VeryActiveDistance , which is completely ok, that means this event probably was an High Intensity Interval Training (HIIT). A kind of workout with a particular intensity that makes you spend a lot of calories, with no necessary walk so much.  
@@ -407,27 +407,4 @@ __Conclusions reached:__
  :mag_right: The company ought to boost people go to bed a couple of hours earlier. Maybe it would be enough with some device notifications, about benefits to go bed at 22 or earlier. Also maybe they get asleep more quickly.  
  :mag_right: Almost ⅓ of the users do not burn the minimum calories a normal human should burn daily. The company must inspire the user try to reach at least 2000 calories daily.  
  :mag_right: Suggest keeping the application and devices turned on, in order to record all the information about their activities, such as a normal day of work, or a lazy day, or maybe a gym day. The company needs to have all the information available posible from the users.  
-
- 
- 
-
-  
-  
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
